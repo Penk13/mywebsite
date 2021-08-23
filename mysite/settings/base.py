@@ -15,7 +15,6 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-from .secret import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -143,12 +142,6 @@ MEDIA_URL = "/media/"
 
 MEDIA_ROOT = BASE_DIR / "static-live" / "media-root"
 
-# Cloudinary config
-cloudinary.config( 
-  cloud_name = CLOUD_NAME,
-  api_key = CLOUD_API_KEY,
-  api_secret = CLOUD_API_SECRET
-)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
