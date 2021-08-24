@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %} Natanael Steven {% endblock title %}
 
@@ -54,7 +55,7 @@
 </section>
 
 
-<section id="projects-section" class="bg-dark text-light my-5">
+<section id="projects-section" class="bg-dark text-light">
   <div class="container">
     <h1 class="fw-bold text-center my-5">PROJECTS</h1>
     <div id="carousel" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
@@ -115,18 +116,27 @@
 </section>
 
 
-<!-- <section id="contact-section" class="bg-dark text-light my-5">
+<section id="contact-section" class="bg-dark text-light">
   <div class="container">
     <h1 class="fw-bold text-center my-5">CONTACT</h1>
     <div class="row">
-      <div class="col">
-        form
+      <div class="col-12 col-lg-6 m-3 p-3">
+        <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Send" class="btn-primary" style="width: 100%;">
+        </form>
       </div>
-      <div class="col">
-        contact
+      <div class="col-12 col-lg-5 p-3 m-3 border border-3">
+        <h2><i class="bi bi-telephone me-3"></i>My Phone</h2>
+        <h6>{{ contact.phone_number }}</h6><br>
+        <h2><i class="bi bi-envelope me-3"></i>Email Address</h2>
+        <h6>{{ contact.email }}</h6><br>
+        <h2><i class="bi bi-geo-alt me-3"></i>My Location</h2>
+        <h6>{{ contact.address }}</h6>
       </div>
     </div>
   </div>
-</section> -->
+</section>
 
 {% endblock content %}

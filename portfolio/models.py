@@ -46,3 +46,13 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Contact(models.Model):
+    me = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=20)
+    email = models.EmailField()
+    address = models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.me.name
