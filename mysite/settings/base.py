@@ -42,8 +42,6 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'crispy_bootstrap5',
-    'cloudinary_storage',
-    'cloudinary',
 
     'portfolio.apps.PortfolioConfig',
 ]
@@ -137,17 +135,9 @@ STATIC_ROOT = BASE_DIR / "static-live" / "static-root"
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = "/media/"
+MEDIA_URL = "/penk-portfollio/"
 
 MEDIA_ROOT = BASE_DIR / "static-live" / "media-root"
-
-# Cloudinary config
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
-    'API_KEY': os.environ.get('CLOUD_API_KEY'),
-    'API_SECRET': os.environ.get('CLOUD_API_SECRET')
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Default primary key field type
