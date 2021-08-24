@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -141,6 +142,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = BASE_DIR / "static-live" / "media-root"
+
+# Cloudinary config
+cloudinary.config( 
+  cloud_name = os.environ.get('CLOUD_NAME'),
+  api_key = os.environ.get('CLOUD_API_KEY'),
+  api_secret = os.environ.get('CLOUD_API_SECRET')
+)
 
 
 # Default primary key field type
