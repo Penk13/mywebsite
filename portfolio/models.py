@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from cloudinary.models import CloudinaryField
 
 
 class Portfolio(models.Model):
@@ -29,7 +28,7 @@ class Skill(models.Model):
 
 class Project(models.Model):
     me = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
-    image = CloudinaryField('image')
+    image = models.ImageField(upload_to='penk-portfolio/')
     name = models.CharField(max_length=100)
     description = models.TextField()
     date_created = models.DateField(auto_now_add=True)
@@ -40,7 +39,7 @@ class Project(models.Model):
 
 class Blog(models.Model):
     me = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
-    image = CloudinaryField('image')
+    image = models.ImageField(upload_to='penk-portfolio/')
     title = models.CharField(max_length=100)
     content = models.TextField()
     date_created = models.DateField(auto_now_add=True)

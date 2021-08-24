@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -45,6 +42,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'crispy_bootstrap5',
+    'cloudinary_storage',
     'cloudinary',
 
     'portfolio.apps.PortfolioConfig',
@@ -144,11 +142,12 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "static-live" / "media-root"
 
 # Cloudinary config
-cloudinary.config( 
-  cloud_name = os.environ.get('CLOUD_NAME'),
-  api_key = os.environ.get('CLOUD_API_KEY'),
-  api_secret = os.environ.get('CLOUD_API_SECRET')
-)
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUD_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUD_API_SECRET')
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Default primary key field type
