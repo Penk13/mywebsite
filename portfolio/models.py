@@ -31,6 +31,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to='project/')
     name = models.CharField(max_length=100)
     description = models.TextField()
+    link = models.URLField(blank=True)
     date_created = models.DateField(auto_now_add=True)
 
     def __str__(self):
