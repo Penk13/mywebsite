@@ -29,6 +29,22 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Email settings
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'natanaelsteven109@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# A list of all the people who get code error notifications
+ADMINS = [('Steven', EMAIL_HOST_USER)]
+MANAGERS = ADMINS
+
+# If email is faiiling, then go to the folloing locations to unlock your gmail address:
+# https://www.google.com/settings/security/lesssecureapps
+# https://accounts.google.com/DisplayUnlockCaptcha
+
+
 
 # Application definition
 
