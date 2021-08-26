@@ -25,8 +25,8 @@
         <div class="about-me-area">
           <img src="{% static 'img/pp.jpg' %}" class="my-3" id="my-photo">
           <h2 class="fw-bold">About Me</h2>
-          <p>{{ portfolio.about_me }}</p>
-          <div class="d-flex" style="font-size: 40px;">
+          <p>{{ portfolio.about_me|safe }}</p>
+          <div class="d-flex" style="font-size: 30px;">
             <a href="#"><i class="bi bi-facebook mx-2"></i></a>
             <a href="#"><i class="bi bi-instagram mx-2"></i></a>
             <a href="#"><i class="bi bi-github mx-2"></i></a>
@@ -47,7 +47,7 @@
         </div>
         <div class="my-service-area">
           <h2 class="fw-bold">My Service</h2>
-          <p>{{ portfolio.my_service }}</p>
+          <p>{{ portfolio.my_service|safe }}</p>
         </div>
       </div>
     </div>
