@@ -18,7 +18,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#home-section">Natanael Steven</a>
+        <a class="navbar-brand" href="{% url 'portfolio:homepage' %}">Natanael Steven</a>
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarDropdown">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,16 +27,16 @@
           </ul>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#about-section">About</a>
+              <a class="nav-link" href="{% url 'portfolio:homepage' %}#about-section">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#projects-section">Projects</a>
+              <a class="nav-link" href="{% url 'portfolio:homepage' %}#projects-section">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#blog-section">Blog</a>
+              <a class="nav-link" href="{% url 'portfolio:homepage' %}#blog-section">Blog</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact-section">Contact</a>
+              <a class="nav-link" href="{% url 'portfolio:homepage' %}#contact-section">Contact</a>
             </li>
           </ul>
         </div>

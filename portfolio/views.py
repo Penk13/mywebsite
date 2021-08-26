@@ -16,7 +16,7 @@ def portfolio(request):
     my_skill = Skill.objects.all()
     my_project = Project.objects.all()
     my_blog = Blog.objects.all()
-    my_contact = Contact.objects.get(id=1)
+    my_contact = get_object_or_404(Contact, id=1)
 
     form = ContactForm()
     if request.method == "POST":
@@ -43,3 +43,9 @@ def portfolio(request):
         'form': form,
         }
     return render(request, "portfolio/portfolio_page.html", context)
+
+
+def read_blog(request, pk):
+    blog = get_object_or_404(Blog, id=pk)
+    context = {'blog': blog}
+    return render(request, "portfolio/blog.html", context)
