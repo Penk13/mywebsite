@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-# from django.urls import reverse
 
 
 class About(models.Model):
@@ -35,20 +34,6 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
-
-
-# class Blog(models.Model):
-#     me = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
-#     image = models.ImageField(upload_to='blog/')
-#     title = models.CharField(max_length=100)
-#     content = models.TextField()
-#     date_created = models.DateField(auto_now_add=True)
-
-#     def __str__(self):
-#         return self.title
-
-#     def get_absolute_url(self):
-#         return reverse("portfolio:blog", kwargs={'pk': self.pk})
 
 
 class Contact(models.Model):

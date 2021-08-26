@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail
 
+from blog.models import Blog
 from .models import (
     About,
     Skill,
     Project,
-    # Blog,
     Contact,
 )
 from .forms import ContactForm
@@ -15,7 +15,7 @@ def portfolio(request):
     me = get_object_or_404(About, id=1)
     my_skill = Skill.objects.all()
     my_project = Project.objects.all()
-    # my_blog = Blog.objects.all()
+    my_blog = Blog.objects.all()
     my_contact = get_object_or_404(Contact, id=1)
 
     form = ContactForm()
@@ -38,14 +38,8 @@ def portfolio(request):
         'portfolio': me,
         'skills': my_skill,
         'projects': my_project,
-        # 'blogs': my_blog,
+        'blogs': my_blog,
         'contact': my_contact,
         'form': form,
         }
     return render(request, "portfolio/portfolio_page.html", context)
-
-
-# def read_blog(request, pk):
-#     blog = get_object_or_404(Blog, id=pk)
-#     context = {'blog': blog}
-#     return render(request, "portfolio/blog.html", context)

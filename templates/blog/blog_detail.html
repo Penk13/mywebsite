@@ -3,7 +3,9 @@
 {% block content %}
 <div class="container m-5">
     <h1>{{ blog.title }}</h1>
-    <p>{{ blog.date_created }}</p>
+    <p>{{ blog.date_created }} 
+    <span class="badge bg-danger"><i class="bi bi-heart"> {{ blog.like }}</i></span>
+    </p>
     <p>{{ blog.content|safe }}</p>
 </div>
 {% endblock content %}

@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
 
     'portfolio.apps.PortfolioConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
