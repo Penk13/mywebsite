@@ -1,16 +1,16 @@
 from django.contrib import admin
 
 from .models import (
-    Portfolio,
+    About,
     Skill,
     Project,
-    Blog,
+    # Blog,
     Contact
 )
 
 
-admin.site.register(Portfolio)
+admin.site.register(About)
 admin.site.register(Skill)
 admin.site.register(Project)
-admin.site.register(Blog)
+# admin.site.register(Blog)
 admin.site.register(Contact)

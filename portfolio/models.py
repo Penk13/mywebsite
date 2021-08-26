@@ -1,9 +1,9 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from django.urls import reverse
+# from django.urls import reverse
 
 
-class Portfolio(models.Model):
+class About(models.Model):
     name = models.CharField(max_length=100)
     about_me = models.TextField(blank=False)
     motto = models.TextField()
@@ -18,7 +18,6 @@ class Portfolio(models.Model):
 
 
 class Skill(models.Model):
-    me = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     percent = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
     date_created = models.DateField(auto_now_add=True)
@@ -28,7 +27,6 @@ class Skill(models.Model):
 
 
 class Project(models.Model):
-    me = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='project/')
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -39,25 +37,24 @@ class Project(models.Model):
         return self.name
 
 
-class Blog(models.Model):
-    me = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='blog/')
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    date_created = models.DateField(auto_now_add=True)
+# class Blog(models.Model):
+#     me = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+#     image = models.ImageField(upload_to='blog/')
+#     title = models.CharField(max_length=100)
+#     content = models.TextField()
+#     date_created = models.DateField(auto_now_add=True)
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title
 
-    def get_absolute_url(self):
-        return reverse("portfolio:blog", kwargs={'pk': self.pk})
+#     def get_absolute_url(self):
+#         return reverse("portfolio:blog", kwargs={'pk': self.pk})
 
 
 class Contact(models.Model):
-    me = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=20)
     email = models.EmailField()
     address = models.CharField(max_length=60)
 
     def __str__(self):
-        return self.me.name
+        return 'My Contact Info'
