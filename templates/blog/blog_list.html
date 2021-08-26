@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="blog-section">
+    <div class="container">
+      <h1 class="fw-bold text-center my-5">BLOG</h1>
+      <h3 class="fw-bold">Here is my blog, hopefully useful. Happy reading!</h3>
+      <div class="row">
+        {% for blog in blogs %}
+        <div class="col-lg-6 col-md-12">
+          <div class="card m-3 bg-dark text-light" style="max-width: 500px;">
+            <div class="row g-0 align-items-center">
+              <div class="col-4">
+                <a href="{{ blog.get_absolute_url }}">
+                <img src="{{ blog.image.url }}" class="img-fluid rounded-start m-3">
+                </a>
+              </div>
+              <div class="col-8">
+                <div class="card-body mx-4">
+                  <a href="{{ blog.get_absolute_url }}" class="text-light">
+                  <h5 class="card-title">{{ blog.title }}</h5>
+                  </a>
+                  <p class="card-text"><small class="text-muted">{{ blog.date_created }}</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock content %}

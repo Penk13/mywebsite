@@ -92,7 +92,8 @@
 
 <section id="blog-section">
   <div class="container">
-    <h1 class="fw-bold text-center my-5">BLOG</h1>
+    <h1 class="fw-bold text-center my-5"><a href="{% url 'blog:list' %}" class="text-decoration-none text-dark">BLOG</a></h1>
+    <h3 class="fw-bold">Recently Posted</h3>
     <div class="row">
       {% for blog in blogs %}
       <div class="col-lg-6 col-md-12">

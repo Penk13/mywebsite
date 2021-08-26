@@ -15,7 +15,7 @@ def portfolio(request):
     me = get_object_or_404(About, id=1)
     my_skill = Skill.objects.all()
     my_project = Project.objects.all()
-    my_blog = Blog.objects.all()
+    my_blog = Blog.objects.order_by('-id')[:4]
     my_contact = get_object_or_404(Contact, id=1)
 
     form = ContactForm()

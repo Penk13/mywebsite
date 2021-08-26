@@ -3,6 +3,12 @@ from django.shortcuts import render, get_object_or_404
 from .models import Blog
 
 
+def blog_list(request):
+    blogs = Blog.objects.order_by('-id')
+    context = {'blogs': blogs}
+    return render(request, "blog/blog_list.html", context)
+
+
 def blog_detail(request, pk):
     blog = get_object_or_404(Blog, id=pk)
     context = {'blog': blog}
