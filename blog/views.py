@@ -41,8 +41,7 @@ def give_like(request, pk):
     blog = get_object_or_404(Blog, id=pk)
     user = request.user
     like = BlogLike.objects.filter(blog=blog, user=user)
-    # Check if object is created
-    print("AAAAAAAAAAAAAAAAAAAAAaa",blog.like)
+    # Check if object is already created
     try:
         # If user already like it, then it will be deleted (user clicks a second time)
         # Must specify the index because its dictionary (queryset)

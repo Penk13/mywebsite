@@ -25,15 +25,9 @@ class BlogComment(models.Model):
     comment = models.TextField(blank=True)
     date_created = models.DateField(auto_now_add=True)
 
-    def __str__(self):
-        return self.comment
-
 
 class BlogLike(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     date_created = models.DateField(auto_now_add=True)
-
-    def __str__(self):
-        return self.blog.title
