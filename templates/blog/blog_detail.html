@@ -7,7 +7,7 @@
     <h1>{{ blog.title }}</h1>
     <p>{{ blog.date_created }} 
     <span class="badge bg-danger">
-      <a href="" class="text-decoration-none text-light">
+      <a href="{% url 'blog:like' blog.pk %}" class="text-decoration-none text-light">
       <i class="bi bi-heart"> {{ blog.like }}</i>
       </a>
     </span>

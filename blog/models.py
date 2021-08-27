@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 
+from django.conf import settings
+
 
 class Blog(models.Model):
     image = models.ImageField(upload_to='blog/')
@@ -18,9 +20,20 @@ class Blog(models.Model):
 
 class BlogComment(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
-    user = models.CharField(max_length=150)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
     comment = models.TextField(blank=True)
     date_created = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.comment
+
+
+class BlogLike(models.Model):
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    date_created = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.blog.title
