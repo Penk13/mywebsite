@@ -1,11 +1,32 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container m-5">
+  <div class="my-5">
     <h1>{{ blog.title }}</h1>
     <p>{{ blog.date_created }} 
-    <span class="badge bg-danger"><i class="bi bi-heart"> {{ blog.like }}</i></span>
+    <span class="badge bg-danger">
+      <a href="" class="text-decoration-none text-light">
+      <i class="bi bi-heart"> {{ blog.like }}</i>
+      </a>
+    </span>
     </p>
     <p>{{ blog.content|safe }}</p>
+  </div>
+  <div class="bg-dark text-light p-5">
+  <form method="POST" class="mb-5">
+    <h4>What do you think?</h4>
+    <p>{{ request.user }}</p>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Post" class="btn btn-primary">
+  </form>
+  {% for comment in comments %}
+    <h6>{{ comment.user }}  -  {{ comment.date_created }}</h6>
+    <p>{{ comment.comment }}</p>
+    <br>
+  {% endfor %}
+  </div>
 </div>
 {% endblock content %}
