@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+  <div class="row my-5">
+    <div class="d-grid col-xl-5 col-lg-12 p-5">
+      <h1>Hello {{ user.username }}! <i class="bi bi-emoji-smile"></i></h1>
+      <h2>Welcome to my website!</h2>
+      <h3>I hope this website will be useful for you. <i class="bi bi-hand-thumbs-up"></i></h3>
+    </div>
+    <div class="col-xl-7 col-lg-12 p-5 bg-dark text-light">
+      <form method="POST" enctype="multipart/form-data">
+        <h2>Edit Profile</h2>
+        <h3 class="my-3 fw-bold">{{ request.user }}</h3>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn btn-primary d-grid col-12" type="submit" value="Update">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
