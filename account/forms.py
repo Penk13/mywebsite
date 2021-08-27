@@ -74,8 +74,8 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ['bio', 'address', 'birth_date']
         widgets = {
-            'bio': Textarea(attrs={'rows': 5, 'placeholder': 'Bio'}),
-            'address': TextInput(attrs={'placeholder': 'Address'}),
+            'bio': Textarea(attrs={'rows': 5, 'placeholder': 'Describe yourself here'}),
+            'address': TextInput(attrs={'placeholder': 'Where do you live?'}),
             'birth_date': DateInput(attrs={'type': 'date'}),
         }
 
