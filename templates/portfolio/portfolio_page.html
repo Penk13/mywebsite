@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-lg-6 col-md-12 text-center p-3">
         <div class="about-me-area">
-          <img src="{% static 'img/user.png' %}" class="my-3" id="my-photo">
+          <img src="{{ portfolio.profile_picture.url }}" class="my-3" id="my-photo">
           <h2 class="fw-bold">About Me</h2>
           <p>{{ portfolio.about_me|safe }}</p>
         </div>

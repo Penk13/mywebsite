@@ -7,6 +7,7 @@ class About(models.Model):
     about_me = models.TextField(blank=False)
     motto = models.TextField()
     my_service = models.TextField()
+    profile_picture = models.ImageField(upload_to='myphoto/')
     # skill
     # project
     # blog

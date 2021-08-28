@@ -45,7 +45,6 @@ MANAGERS = ADMINS
 # https://accounts.google.com/DisplayUnlockCaptcha
 
 
-
 # Application definition
 
 INSTALLED_APPS = [
