@@ -1,5 +1,4 @@
 mysite/settings/local.py
-mysite/settings/secret.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
